@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+        <a href="http://www.oceanbrasil.com/" target="_blank">Clique para ir a Ocean Brail</a>
+        {% if usuario[2] == "Professor" %}
+            <h2> Bem vindo Professor </h2>
+        {% else %}
+            <h2>Bem vindo aluno</h2> 
+        {% endif %}
+        <table>
+        {% for aluno in alunos %}
+            <tr>
+                <td>  {{ aluno }} </td>
+            </tr>
+        {% endfor %}
+        </table>
+        <h1> {{ nome }} </h1>
+        <h1>Sergio Hiroshi Sato</h1>
+        <h2>sergio@email.com</h2>
+        <h3>123456789</h3>
+{% endblock %}
