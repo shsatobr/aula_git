@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-        <a href="http://www.oceanbrasil.com/" target="_blank">Clique para ir a Ocean Brail</a>
-        {% if usuario[2] == "Professor" %}
-            <h2> Bem vindo Professor </h2>
-        {% else %}
-            <h2>Bem vindo aluno</h2> 
+    {% for post in posts %}
+        <article class="post">
+            <header>
+                <div>
+                    <h1> {{ post.title }} </h1>
+                    <div class="about">
+                        Criado por {{ post['author'] }} em {{ post['created'] }}
+                    </div>
+                </div>
+            </header>
+            <p class="body"> {{ post['body'] }}</p>
+        </article>
+        {% if not loop.last %} 
+            <hr>
         {% endif %}
-        <table>
-        {% for aluno in alunos %}
-            <tr>
-                <td>  {{ aluno }} </td>
-            </tr>
-        {% endfor %}
-        </table>
-        <h1> {{ nome }} </h1>
-        <h1>Sergio Hiroshi Sato</h1>
-        <h2>sergio@email.com</h2>
-        <h3>123456789</h3>
+     {% endfor %}    
 {% endblock %}
